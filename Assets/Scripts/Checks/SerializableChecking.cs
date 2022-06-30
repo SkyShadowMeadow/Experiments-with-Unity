@@ -10,7 +10,7 @@ namespace Checks
 
         private void Start()
         {
-            StartCoroutine(ChangeScale());
+            //StartCoroutine(ChangeScale());
         }
 
         private IEnumerator ChangeScale()

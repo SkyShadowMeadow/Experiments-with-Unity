@@ -18,11 +18,12 @@ namespace Checks
 
         void Start()
         {
-            CreateCubes();
+            StartCoroutine(CreateCubes());
         }
 
-        private void CreateCubes()
+        private IEnumerator CreateCubes()
         {
+            yield return new WaitForSeconds(2f);
             Vector3 position = new Vector3(0, 0, 0);
             StartCoroutine(CreateLine(position));
         }
@@ -38,7 +39,6 @@ namespace Checks
             
             for (int i = 0; i < _numberToPower; i++)
             {
-                //Instantiate(_unitPrefab, positionInRow, Quaternion.identity);
                 yield return new WaitForSeconds(0.1f);
                 StartCoroutine(SmoothLerp(positionInRow));
                 _created++;

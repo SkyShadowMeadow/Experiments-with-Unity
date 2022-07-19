@@ -222,9 +222,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitPrefab: {fileID: 1188311517654680360, guid: 4d8247f12bfd04de89f4502729b77e03, type: 3}
   _startPosition: {fileID: 64258501}
-  _numberToPower: 5
+  _numberToPower: 3
   _distance: 0.5
-  _timeToMoveToTheFinalPoint: 1.2
+  _timeToMoveToTheFinalPoint: 0.5
 --- !u!1 &64258500
 GameObject:
   m_ObjectHideFlags: 0

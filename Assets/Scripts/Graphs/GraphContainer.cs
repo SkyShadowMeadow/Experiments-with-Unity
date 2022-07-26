@@ -65,9 +65,6 @@ namespace Graphs
             rectTransform.anchorMax = new Vector2(0, 0);
             rectTransform.anchorMin = new Vector2(0, 0);
             rectTransform.anchoredPosition = firstPoint.anchoredPosition + direction * distance * 0.5f;
-            Debug.Log("direction " + direction);
-            Debug.Log("distance " + distance);
-            Debug.Log(direction * distance * 0.5f);
             rectTransform.localEulerAngles = new Vector3(0, 0, UtilsClass.GetAngleFromVector(direction));
         }
     }

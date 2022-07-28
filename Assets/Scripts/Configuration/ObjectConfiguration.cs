@@ -10,7 +10,7 @@ namespace Configuration
     {
         private static Dictionary<Type, ObjectConfiguration> _cash;
 
-        public T GetConfig<T>() where T : ObjectConfiguration
+        public static T GetConfig<T>() where T : ObjectConfiguration
         {
             return GetConfig(typeof(T)) as T;
         }
@@ -57,5 +57,14 @@ namespace Configuration
 
             return configsInAssemblies;
         }
+    }
+    public abstract class ObjectConfiguration<T> : ObjectConfiguration where T : ObjectConfiguration<T> 
+    {
+        private static T _instance;
+
+        /// <summary>
+        /// cached instance of config, for avoiding expensive GetConfig();
+        /// </summary>
+        public static T Instance => _instance == null ? _instance = GetConfig<T>() : _instance;
     }
 }

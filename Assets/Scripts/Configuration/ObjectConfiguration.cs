@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -37,6 +38,24 @@ namespace Configuration
             var castedValue = value as ObjectConfiguration;
             _cash.Add(type, castedValue);
             return castedValue ;
+        }
+
+        public static List<ObjectConfiguration> GetAllConfigs()
+        {
+            var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var configsInAssemblies = new List<ObjectConfiguration>();
+            
+            foreach (var assembly in allAssemblies)
+            {
+                var allTypes = assembly
+                    .GetTypes()
+                    .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(ObjectConfiguration)))
+                    .ToList();
+
+                configsInAssemblies.AddRange(allTypes.Select(ObjectConfiguration.GetConfig).ToList());
+            }
+
+            return configsInAssemblies;
         }
     }
 }

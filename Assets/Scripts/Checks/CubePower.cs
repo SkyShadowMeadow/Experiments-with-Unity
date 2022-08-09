@@ -7,7 +7,7 @@ namespace Checks
 	{
 		[SerializeField] private GameObject _unitPrefab;
 		[SerializeField] private Transform _startPosition;
-		[SerializeField] private int _numberToPower = 4;
+		[SerializeField] private int _numberToPower = 5;
 		[SerializeField] private float _distance = 0.5f;
 		[SerializeField] private float _timeToMoveToTheFinalPoint = 1f;
 
